@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    /* style the container */
+    .container {
+        text-align: center;
+        position: relative;
+        border-radius: 5px;
+        padding: 20px 0 30px 0;
+    } 
+    
+    /* style inputs and link buttons */
+    input,
+    .btn {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 4px;
+        margin: 5px 0;
+        opacity: 0.85;
+        display: inline-block;
+        font-size: 17px;
+        line-height: 20px;
+        text-decoration: none; /* remove underline from anchors */
+    }
+    
+    /* main image */
+    .mainvisual {
+    text-align: center;
+    position: relative;
+    opacity: 0.5;
+    height: 100px;
+    border-radius: 5px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    }
+    
+    .subimg {
+    display: block;
+    border-radius: 5px;
+    height:100%;
+    width:100%;
+    text-align: center;
+    border-radius: 5px;
+    padding: 2px;
+    }
+    
+    .top-center {
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 45px;
+        color: #0B3861;
+        font-weight: bold
+    }
+    
+    .companyinfo {
+        background-color: #8A9399;
+        color: white;
+    }
+    
+    .financeinfo {
+        background-color: #8A9399;
+        color: white;
+    }
+    
+    .financecost {
+        background-color: #55ACEE;
+        color: white;
+    }
+    
+    .operation {
+        background-color: #55ACEE;
+        color: white;
+    }
+    
+    .finance {
+        background-color: #55ACEE;
+        color: white;
+    }
+    
+    .analysis {
+        background-color: rgb(49, 53, 56);
+        color: white;
+    }
+    
+    .report {
+        background-color: rgb(49, 53, 56);
+        color: white;
+    }
+    
+    /* Two-column layout */
+    .col {
+        float: left;
+        width: 50%;
+        margin: auto;
+        padding: 0 50px;
+        margin-top: 6px;
+    }
+    
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    
+    /* vertical line */
+    .vl {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        border: 2px solid #2C3E50;
+        height: 300px;
+    }
+    
+    /* hide some text on medium and large screens */
+    .hide-md-lg {
+        display: none;
+    }
+    
+    /* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 650px) {
+        .col {
+        width: 100%;
+        margin-top: 0;
+        }
+        /* hide the vertical line */
+        .vl {
+        display: none;
+        }
+        /* show the hidden text on small screens */
+        .hide-md-lg {
+        display: block;
+        text-align: center;
+        }
+    }
+
+    
+    /*SEARCH BOX 3 */
+
+    body {
+  font-family: Arial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+    form{
+        width:100%;
+        margin-left:30px;
+        margin-right:40px;
+        padding: 30px;
+        }
+    input[type=text]{
+        width:80%;
+        padding:15px;
+        border:none;
+        font-size:18px;
+        font-family:sans-serif;
+        border-radius:5px 0 0 5px;
+    } 
+    input[type=submit]{
+        width:20%;
+        padding:15px;
+        border:none;
+        font-size:18px;
+        font-family:sans-serif;
+        background:orange;
+        color:white;
+        border-radius:5px 0 0 5px;
+        cursor:pointer;
+        position:absolute;
+    } 
+
+    .btn-group button {
+        width: 50%;
+        padding: 20px 0 20px 0;
+        cursor: pointer;
+        display: inline-block;
+        opacity: 0.85;
+        border: none;
+        border-radius: 4px;
+        margin: 5px 0;
+        font-size: 17px;
+        line-height: 20px;
+        text-decoration: none;
+        background-color: #55ACEE; 
+        color: white; 
+        text-align: center;
+        position: relative;
+        left: 25%;
+        margin-bottom: 10px;
+    }
+
+    .btn-group button:not(:last-child) {
+        border-bottom: none; /* Prevent double borders */
+    }
+    
+    .info {
+        background-color: #fff;
+        width: 840px;
+        height: 500px;
+        padding: 80px;
+        margin: 25px;
+        position: relative;
+        bottom: 440px;
+        left: 280px;
+    }
+    */
+
+</style>
+</head>
+<script type="text/javascript">
+ function doAction1(){ 
+ var s = document.getElementById('analysisCode1').value; 
+ var url = 'ratioChart?param=' + encodeURI(s); 
+ window.location.href = url; 
+ }
+</script>
+
+<script type="text/javascript">
+    function doAction2(){ 
+    var s = document.getElementById('analysisCode2').value; 
+    var url = 'result?param=' + encodeURI(s); 
+    window.location.href = url; 
+    }
+</script>
+
+<body>
+    <!--SEARCH BAR-->
+    <script>
+    
+    function showHint(str) {
+        //alert(str)
+        //document.getElementById("hiddenCode").value = str
+        var xhttp;
+        if (str.length == 0) { 
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+        }
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            data = JSON.parse(this.responseText);
+            var nList=[]
+            //var iList=[]
+            var cList=[]
+            for (var i = 0; i < data['arrayList'].length; i++) {
+            console.log(data['arrayList'][i])
+            nList.push(data['arrayList'][i]["name"])
+            document.getElementById("txtHint").innerHTML = nList;
+            //iList.push(data['arrayList'][i]["id"])
+            //document.getElementById("txt1").innerHTML = iList;
+            cList.push(data['arrayList'][i]["code"])
+            //document.getElementById("txt1").innerHTML = iList
+            document.getElementById("hiddenCode").value = cList;
+            document.getElementById("analysisCode1").value = cList;
+            document.getElementById("analysisCode2").value = cList;
+            //console.log(cList)
+            }           
+        }
+        };
+        xhttp.open("GET", "myAjaxReq?q="+str, true);
+        xhttp.send();
+    }
+    </script>
+
+{% load static %} 
+
+<!--<body background="buildings.jpg">-->
+<div class="mainvisual">	
+    <img src="{% static 'evComp/buildings.jpg' %}" alt="" style="width:100%;">	
+</div>
+<div class="top-center" style="margin-top:30px;">Enterprise Value Evaluation</div>	
+</div>
+<h3 style="margin-left: 100px;margin-bottom: 5px;margin-top:80px;">기업 검색</h3>
+
+    <div>   
+    <input type="text" id="txt1" onkeyup="showHint(this.value)" autocomplete="" style="margin-left: 100px;margin-top:10px;" placeholder = "검색하고 싶은 기업명을 입력하시기 바랍니다.";> <!--onblur-->
+    <input type="hidden" name = "code" id="hiddenCode">
+    </div>
+
+    <p style="margin-left: 100px;font-size: 18px;color: #151716;">기업 검색 결과: <span id="txtHint"></span></p>
+    
+    <div class="btn-group" style="margin-top: 50px;">
+        <button>재무정보</button>
+        <div>
+        <input type="hidden" name="analysis1" id="analysisCode1">
+        <button onclick="doAction1();">재무비율분석</button>
+        </div>   
+        <div>
+            <input type="hidden" name="analysis2" id="analysisCode2">
+            <button onclick="doAction2();">분석결과</button>
+        </div>   
+        <button>REPORT</button>
+    </div>
+    <!--
+    <div class="col">
+        <div class = "info"> company info company info company info company info company info company info company info company info company info company info company info company info company info company info company info company info 
+        </div>
+    </div>
+-->
+<!--
+<div>
+<input type="hidden" name="analysis" id="analysisCode">
+<button onclick="doAction();">검색</button>
+</div>
+-->
+</body>
+</html>
+<!--https://www.w3schools.com/howto/howto_css_search_button.asp 참-->

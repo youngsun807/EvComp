@@ -1,0 +1,17 @@
+<h1>results.html</h1>
+
+<hr>
+<br>
+
+
+<h3>{{question.question_text}} </h3>
+
+<ul>
+{% for choice in question.choice_set.all %}
+    <li>{{choice.choice_text}} - {{choice.votes}} vote{{choice.votes | pluralize}}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'myapp:detail' question.id%}">상세 page로 이동</a>
+<br>
+<a href="{% url 'myapp:index'%}">index page로 이동</a>

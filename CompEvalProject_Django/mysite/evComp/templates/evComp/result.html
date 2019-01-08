@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', { 'packages': ['table'] });
+    google.charts.setOnLoadCallback(drawTable);
+
+    function drawTable() {
+      var arrayData = JSON.parse('{{ DecisionArray | safe }}'); // Decision이라 저장해야함
+      var data = new google.visualization.DataTable();
+
+      console.log(arrayData)
+      // Declare columns
+      data.addColumn('string', ' ');
+      data.addColumn('string', arrayData[0]); //data1[0]
+
+      // Add data.
+      data.addRows([
+        [arrayData[1][0], arrayData[1][1]],
+        //[arrayData[2][0], arrayData[2][1]],
+        //[arrayData[3][0], arrayData[3][1]]
+      ]);
+
+      var table = new google.visualization.Table(document.getElementById('Decision_div'));
+
+      table.draw(data, { showRowNumber: false, width: '30%', height: '15%' });
+    }
+  </script>
+
+
+  <!-- ************************************************************************************************  -->
+  <!-- ************************************************************************************************  -->
+  <!-- ************************************************************************************************  -->
+
+
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', { 'packages': ['table'] });
+    google.charts.setOnLoadCallback(drawTable);
+
+    function drawTable() {
+      var arrayData = JSON.parse('{{ ISArray | safe }}'); // Decision이라 저장해야함
+      var data = new google.visualization.DataTable();
+
+      // Declare columns
+      data.addColumn('string', '포괄손익계산서');
+      data.addColumn('string', '2014/12');
+      data.addColumn('string', '2015/12');
+      data.addColumn('string', '2016/12');
+      data.addColumn('string', '2017/12');
+      data.addColumn('string', '2018/12');
+
+      // Add data.
+      data.addRows(arrayData);
+
+      // // Add data.
+      // data.addRows([
+      //   [arrayData[0][0], arrayData[0][1], arrayData[0][2], arrayData[0][3], arrayData[0][4], arrayData[0][5]], 
+      //     [arrayData[1][0], arrayData[1][1], arrayData[1][2], arrayData[1][3], arrayData[1][4], arrayData[1][5]], 
+      //   ]);
+
+      var table = new google.visualization.Table(document.getElementById('IS_div'));
+
+      table.draw(data, { showRowNumber: false, width: '100%', height: '100%' });
+    }
+  </script>
+
+
+
+
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', { 'packages': ['table'] });
+    google.charts.setOnLoadCallback(drawTable);
+
+    function drawTable() {
+      var arrayData = JSON.parse('{{ BSArray | safe }}'); // Decision이라 저장해야함
+      var data = new google.visualization.DataTable();
+
+      // Declare columns
+      data.addColumn('string', '재무상태표');
+      data.addColumn('string', '2014/12');
+      data.addColumn('string', '2015/12');
+      data.addColumn('string', '2016/12');
+      data.addColumn('string', '2017/12');
+      data.addColumn('string', '2018/12');
+
+      // Add data.
+      data.addRows(arrayData);
+
+      // // Add data.
+      // data.addRows([
+      //   [arrayData[0][0], arrayData[0][1], arrayData[0][2], arrayData[0][3], arrayData[0][4], arrayData[0][5]], 
+      //     [arrayData[1][0], arrayData[1][1], arrayData[1][2], arrayData[1][3], arrayData[1][4], arrayData[1][5]], 
+      //   ]);
+
+      var table = new google.visualization.Table(document.getElementById('BS_div'));
+
+      table.draw(data, { showRowNumber: false, width: '100%', height: '100%' });
+    }
+  </script>
+
+
+
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', { 'packages': ['table'] });
+    google.charts.setOnLoadCallback(drawTable);
+
+    function drawTable() {
+      var arrayData = JSON.parse('{{ CFArray | safe }}'); // Decision이라 저장해야함
+      var data = new google.visualization.DataTable();
+
+      // Declare columns
+      data.addColumn('string', '현금흐름표');
+      data.addColumn('string', '2014/12');
+      data.addColumn('string', '2015/12');
+      data.addColumn('string', '2016/12');
+      data.addColumn('string', '2017/12');
+      data.addColumn('string', '2018/12');
+
+      // Add data.
+      data.addRows(arrayData);
+
+      // // Add data.
+      // data.addRows([
+      //   [arrayData[0][0], arrayData[0][1], arrayData[0][2], arrayData[0][3], arrayData[0][4], arrayData[0][5]], 
+      //     [arrayData[1][0], arrayData[1][1], arrayData[1][2], arrayData[1][3], arrayData[1][4], arrayData[1][5]], 
+      //   ]);
+
+      var table = new google.visualization.Table(document.getElementById('CF_div'));
+
+      table.draw(data, { showRowNumber: false, width: '100%', height: '100%' });
+    }
+  </script>
+
+
+
+
+
+  <!-- ************************************************************************************************  -->
+  <!-- ************************************************************************************************  -->
+  <!-- ************************************************************************************************  -->
+
+</head>
+
+<body>
+  
+  <div id="IS_div" style="width: 900px; height: 500px;"></div>
+  <hr width=100%>
+  <div id="BS_div" style="width: 900px; height: 500px;"></div>
+  <hr width=100%>
+  <div id="CF_div" style="width: 900px; height: 500px;"></div>
+  <hr width=100%>
+  <div id="Decision_div" style="width: 900px; height: 500px;"></div>
+
+
+
+</body>
+
+</html>

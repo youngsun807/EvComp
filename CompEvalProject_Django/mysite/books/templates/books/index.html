@@ -1,0 +1,56 @@
+<!-- books 애플리케이션의 첫 화면 -->
+{% extends "base.html" %}
+
+<head>
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'books/style.css' %}">
+<title>{% block title %}Books Application Site{% endblock %}</title>
+</head>
+
+<!--
+--------------------------------------------------------------------------------------           
+ 예시
+        <link rel="stylesheet" href="style.css">
+
+        위의 link 태그는 stylesheet 와 관련이 있고,참조하는 파일은 style.css 이다라는 것!
+ --------------------------------------------------------------------------------------
+-->
+
+<body>
+    {% block content %}
+        <h2>Books Management System</h2>
+        <ul>
+            {% for modelname in model_list %}
+
+                {% with "books:"|add:modelname|lower|add:"_list" as urlvar %} <!--lower함수를 안 쓰는 방법은 books/urs.py에서 별칭을 Author로 하면 될 듯하다. -->
+                    <!--
+                        Author
+                        books:"|add:modelname|lower|add:"_list
+                        books : author_list로 변환
+                        <li><a href="/books/author/">Author</a><li>-->
+                    <li><a href="{% url urlvar %}">{{ modelname }}</a></li>
+                
+                {% endwith %}
+        
+            {% endfor %}
+        
+        </ul>
+    {% endblock %}
+</body>
+ <!--
+ with "books:"|add:modelname|lower|add:"_list" as urlvar 
+ 1. with : 변수에 값 대입하는 template 변수
+ 2. 변수 : urlvar
+ 3. "books:"|add:modelname|lower|add:"_list"
+    - books
+    - add : 결합 filter
+    - lower : 소문자로 변환하는 filter
+    - modelname : views.py로 부터 받은 data
+    - add:modelname|lower
+        : modelname 변수값을 소문자로 변환해서 결합하기
+    - 결론
+        books:소문자_list
+4. <li><a href="/books/book/">Book</a></li> 
+-->
+            

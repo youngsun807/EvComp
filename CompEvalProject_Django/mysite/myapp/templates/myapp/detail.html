@@ -1,0 +1,48 @@
+<h1>detail.html</h1>
+
+<hr>
+<br>
+
+
+<h3>{{question.question_text}}</h3>
+
+{% if error_message %} <p><strong>{{error_message}}</strong></p>{% endif %}
+
+<!-- <form action="/myapp/1/vote/" method="post"> -->
+<form action="{% url 'myapp:vote' question.id %}" method="post">
+    {% csrf_token %}    
+    <!-- 
+        1. Question과 Choice table의 관계 - 1:N
+        2. xxx_set이란? 
+            1:N 관계의 외래키로 연결된 N 테이블의 항목들을 활용하는 속성명        
+    -->
+    {% for choice in question.choice_set.all %}
+        <input type="radio" name="choice" id="choice{{forloop.counter}}" value="{{choice.id}}" />
+        <label for="choice{{forloop.counter}}">{{choice.choice_text}}</label><br />
+    {% endfor %}
+
+    <input type="submit" value="전송">
+</form>
+
+
+
+<!--
+<form action="/myapp/1/vote/" method="post">
+    <input type="hidden" name="csrfmiddlewaretoken" value="Kro5xmpXxgS0iQesOfchIEkqZeh2MIFnr7AFgbRcJbsrTXJHoWRoE79OLggqgibe">
+    
+    <input type="radio" name="choice" id="choice1" value="1" />
+    <label for="choice1">사과</label><br />
+
+    <input type="radio" name="choice" id="choice2" value="2" />
+    <label for="choice2">배</label><br />
+
+    <input type="radio" name="choice" id="choice3" value="3" />
+    <label for="choice3">수박</label><br />
+    
+
+    <input type="submit" value="전송">
+</form>
+-->
+
+
+
